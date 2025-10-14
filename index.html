@@ -4,70 +4,204 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>BaliDoctor.live — Online Doctor Conversations in Bali</title>
+
+  <!-- SEO -->
+  <link rel="canonical" href="https://balidoctor.live/" />
+  <meta name="description" content="Quick, friendly online doctor conversations for advice and follow-up in Bali. Licensed Indonesian doctors, English-speaking, privacy-minded, easy booking." />
+  <meta name="keywords" content="Bali online doctor, Bali telehealth, online doctor conversation, English speaking doctor Bali, medical advice Bali" />
+  <meta name="theme-color" content="#0aa69e" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="BaliDoctor.live — Online Doctor Conversations in Bali" />
+  <meta property="og:description" content="Book a quick online doctor conversation for advice and follow-up. English-speaking, privacy-minded, local to Bali." />
+  <meta property="og:url" content="https://balidoctor.live/" />
+  <meta property="og:image" content="https://bartbalidoc.github.io/balidoctor.live/phone%20doctor.png" />
+
   <style>
     :root{
-      --brand:#0aa69e;
-      --brand-dark:#07857f;
-      --ink:#1f2a2e;
-      --muted:#5b6a71;
-      --line:#e7edf0;
-      --soft:#f6faf9;
-      --blue:#0b66b1;
-      --radius:16px;
-      --shadow:0 10px 28px rgba(16,42,67,.08);
+      --brand:#0aa69e; --brand-dark:#07857f; --blue:#0b66b1;
+      --ink:#1f2a2e; --muted:#5b6a71; --line:#e7edf0; --soft:#f6faf9;
+      --radius:16px; --shadow:0 10px 28px rgba(16,42,67,.08);
       --max:1120px;
     }
+    *{box-sizing:border-box}
     body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:#fff}
+    a{text-decoration:none}
+    img{max-width:100%;display:block}
+
     .wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
-    header{background:#fff;border-bottom:1px solid var(--line)}
+
+    /* Header */
+    header{position:sticky;top:0;z-index:30;background:#fff;border-bottom:1px solid var(--line)}
     .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
-    .brand{display:flex;align-items:center;gap:10px;font-weight:700}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:800}
     .logo{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--brand),var(--brand-dark));box-shadow:var(--shadow)}
-    .nav a.btn{padding:10px 16px;border-radius:999px;background:var(--brand);color:#fff;font-weight:600;text-decoration:none}
-    .hero{background:linear-gradient(180deg,#e9f8f6,#fff);padding:56px 0;display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center}
-    .h1{font-size:clamp(28px,4.5vw,44px);margin:0 0 14px}
-    .lead{font-size:18px;color:var(--muted);margin:0 0 24px}
-    .btn.primary{background:var(--brand);color:#fff;padding:12px 18px;border-radius:999px;font-weight:700;box-shadow:var(--shadow)}
-    .btn.wa{background:#25D366;color:#fff;padding:12px 18px;border-radius:999px;font-weight:700;box-shadow:var(--shadow)}
+    .navlinks{display:flex;gap:14px}
+    .chip{padding:8px 14px;border-radius:999px;border:1px solid var(--line);color:var(--ink);background:#fff}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border-radius:999px;font-weight:700;box-shadow:var(--shadow)}
+    .btn.primary{background:var(--brand);color:#fff}
+    .btn.primary:hover{background:var(--brand-dark)}
+    .btn.wa{background:#25D366;color:#fff}
+    .btn.wa:hover{filter:brightness(0.95)}
+
+    /* Hero */
+    .hero{background:linear-gradient(180deg,#e9f8f6,#fff)}
+    .hero-inner{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center;padding:56px 0}
+    .h1{font-size:clamp(28px,4.5vw,44px);margin:0 0 14px;line-height:1.1}
+    .lead{font-size:clamp(16px,2vw,19px);color:var(--muted);margin:0 0 22px}
+    .micro{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+    .pill{display:inline-block;font-size:12px;font-weight:700;padding:6px 10px;background:var(--soft);border:1px solid var(--line);border-radius:999px;color:var(--muted)}
+    .hero img{border-radius:16px;box-shadow:var(--shadow)}
+
+    /* Sections */
     section{padding:56px 0}
     .section-title{font-size:28px;margin:0 0 18px}
+    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
+    .card h3{margin:0 0 8px}
+
+    /* Doctors */
     .docs{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
     .doc{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:#fff;box-shadow:var(--shadow);transition:transform .2s ease,box-shadow .2s ease}
     .doc:hover{transform:translateY(-6px);box-shadow:0 14px 32px rgba(16,42,67,.15)}
-    .doc img{width:100%;height:340px;object-fit:cover;object-position:top;border-bottom:4px solid var(--brand)}
+    .doc .photo{position:relative}
+    .doc .photo img{width:100%;height:340px;object-fit:cover;object-position:top}
+    .doc .photo::after{content:"";display:block;height:4px;background:var(--brand)}
     .doc .info{padding:16px;text-align:center}
     .doc .name{font-weight:800;margin:0 0 4px;font-size:18px}
     .doc .role{color:var(--muted);font-size:14px;margin:0 0 8px}
     .doc .sip{font-size:12px;color:#4c5a60}
+
+    /* FAQ */
+    details{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:#fff}
+    details+details{margin-top:12px}
+    summary{cursor:pointer;font-weight:700}
+    summary::-webkit-details-marker{display:none}
+
+    /* Footer */
+    footer{background:#0f1b20;color:#d6e2e6}
+    footer a{color:#cfe8ff}
+    .foot{display:grid;grid-template-columns:1fr auto;gap:18px;padding:28px 0}
+    .legal{color:#9fb1b8;font-size:13px}
+
+    /* Responsive */
+    @media (max-width: 900px){
+      .hero-inner{grid-template-columns:1fr}
+      .grid3{grid-template-columns:1fr}
+    }
   </style>
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "name":"BaliDoctor.live",
+    "url":"https://balidoctor.live/",
+    "logo":"https://bartbalidoc.github.io/balidoctor.live/phone%20doctor.png",
+    "description":"Online doctor conversations for advice and follow-up in Bali. English-speaking, privacy-minded, easy booking.",
+    "contactPoint":[{
+      "@type":"ContactPoint",
+      "contactType":"customer support",
+      "telephone":"+62-895-1802-3363",
+      "availableLanguage":["en","id"],
+      "areaServed":"ID-BL"
+    }]
+  }
+  </script>
 </head>
 <body>
+  <!-- Header -->
   <header>
-    <div class="wrap nav">
-      <div class="brand"><div class="logo"></div><span>BaliDoctor.live</span></div>
-      <a class="btn" href="#doctors">Our Doctors</a>
+    <div class="wrap nav" aria-label="Top Navigation">
+      <div class="brand" aria-label="BaliDoctor.live brand">
+        <div class="logo" aria-hidden="true"></div>
+        <span>BaliDoctor.live</span>
+      </div>
+      <nav class="navlinks" aria-label="Header links">
+        <a class="chip" href="#how">How it works</a>
+        <a class="chip" href="#doctors">Doctors</a>
+        <a class="btn primary" href="https://calendly.com/info-balidoctor/10-minute-free-online-doctor-consult-on-google" target="_blank" rel="noopener" aria-label="Book a free online doctor conversation">Book Free</a>
+      </nav>
     </div>
   </header>
 
   <main>
-    <section class="hero">
-      <div>
-        <h1 class="h1">Quick Online Doctor Conversations in Bali</h1>
-        <p class="lead">Friendly, private video calls with licensed doctors for advice and follow‑up. English‑speaking, easy to book, and focused on your needs.</p>
-        <a class="btn primary" href="https://calendly.com/info-balidoctor/10-minute-free-online-doctor-consult-on-google" target="_blank">Book a Free Conversation</a>
-        <a class="btn wa" href="https://wa.me/6289518023363?text=Hi%20BaliDoctor%2C%20I%20would%20like%20some%20information." target="_blank">Talk to us on WhatsApp</a>
-      </div>
-      <div>
-        <img src="phone%20doctor.png" alt="Online doctor conversation on a smartphone" style="border-radius:16px;box-shadow:var(--shadow)" />
+    <!-- Hero -->
+    <section class="hero" aria-label="Hero section">
+      <div class="wrap hero-inner">
+        <div>
+          <h1 class="h1">Quick Online Doctor Conversations in Bali</h1>
+          <p class="lead">Friendly, private video calls with licensed doctors for advice and follow-up. English-speaking, easy to book, and focused on your needs.</p>
+          <div class="cta" role="group" aria-label="Primary actions">
+            <a class="btn primary" href="https://calendly.com/info-balidoctor/10-minute-free-online-doctor-consult-on-google" target="_blank" rel="noopener">Book a Free Conversation</a>
+            <a class="btn wa" href="https://wa.me/6289518023363?text=Hi%20BaliDoctor%2C%20I%20would%20like%20some%20information." target="_blank" rel="noopener">Talk to us on WhatsApp</a>
+          </div>
+          <div class="micro">
+            <span class="pill">English & Bahasa Indonesia</span>
+            <span class="pill">Secure & Private</span>
+            <span class="pill">No clinic visit needed</span>
+          </div>
+        </div>
+        <div>
+          <img src="phone%20doctor.png" alt="Online doctor conversation on a smartphone" />
+        </div>
       </div>
     </section>
 
-    <section id="doctors">
+    <!-- Why Choose Us -->
+    <section aria-label="Why choose us">
+      <div class="wrap">
+        <h2 class="section-title">Why People Choose BaliDoctor.live</h2>
+        <div class="grid3">
+          <div class="card">
+            <h3>Licensed Local Doctors</h3>
+            <p>Consult with experienced, Indonesia-licensed doctors who understand Bali’s healthcare landscape.</p>
+          </div>
+          <div class="card">
+            <h3>Clear Advice</h3>
+            <p>Straightforward guidance and follow-up steps you can actually use. No confusing jargon.</p>
+          </div>
+          <div class="card">
+            <h3>Fast & Private</h3>
+            <p>Book in minutes, talk securely, and keep your information confidential.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it Works -->
+    <section id="how" aria-label="How it works">
+      <div class="wrap">
+        <h2 class="section-title">How It Works</h2>
+        <div class="grid3">
+          <div class="card">
+            <h3>1) Pick a Time</h3>
+            <p>Choose a time that suits you using our simple booking link.</p>
+          </div>
+          <div class="card">
+            <h3>2) Meet Online</h3>
+            <p>Join a secure video call with a doctor. Share your concerns comfortably from anywhere.</p>
+          </div>
+          <div class="card">
+            <h3>3) Get a Plan</h3>
+            <p>Receive clear advice and follow-up steps tailored to your situation.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Doctors -->
+    <section id="doctors" aria-label="Our doctors">
       <div class="wrap">
         <h2 class="section-title">Meet Our Doctors</h2>
-        <div class="docs">
-          <article class="doc">
-            <img src="Dr%20Bintang.jpg" alt="Portrait of Dr. Bintang, General Practitioner" />
+
+        <div class="docs" role="list">
+          <article class="doc" role="listitem">
+            <div class="photo">
+              <img src="Dr%20Bintang.jpg" alt="Portrait of Dr. Bintang, General Practitioner" />
+            </div>
             <div class="info">
               <p class="name">Dr. Bintang</p>
               <p class="role">General Practitioner (GP)</p>
@@ -75,8 +209,10 @@
             </div>
           </article>
 
-          <article class="doc">
-            <img src="Dr%20Karina.jpg" alt="Portrait of Dr. Karina, General Practitioner" />
+          <article class="doc" role="listitem">
+            <div class="photo">
+              <img src="Dr%20Karina.jpg" alt="Portrait of Dr. Karina, General Practitioner" />
+            </div>
             <div class="info">
               <p class="name">Dr. Karina</p>
               <p class="role">General Practitioner (GP)</p>
@@ -84,8 +220,10 @@
             </div>
           </article>
 
-          <article class="doc">
-            <img src="Dr%20Tri.jpg" alt="Portrait of Dr. Tri, General Practitioner" />
+          <article class="doc" role="listitem">
+            <div class="photo">
+              <img src="Dr%20Tri.jpg" alt="Portrait of Dr. Tri, General Practitioner" />
+            </div>
             <div class="info">
               <p class="name">Dr. Tri</p>
               <p class="role">General Practitioner (GP)</p>
@@ -95,6 +233,87 @@
         </div>
       </div>
     </section>
+
+    <!-- About -->
+    <section aria-label="About BaliDoctor.live">
+      <div class="wrap">
+        <div class="grid3">
+          <div class="card">
+            <h3>About Us</h3>
+            <p>BaliDoctor.live helps tourists, expats, and locals connect with licensed doctors online. We focus on clear conversations, practical advice, and simple next steps.</p>
+          </div>
+          <div class="card">
+            <h3>What You Can Expect</h3>
+            <ul>
+              <li>Friendly, professional online conversations</li>
+              <li>Guidance tailored to your situation</li>
+              <li>Help navigating local healthcare</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Good to Know</h3>
+            <p>We keep the site advertiser-friendly by avoiding sensitive or restricted terms. For urgent or severe issues, contact local emergency services immediately.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section aria-label="Frequently asked questions">
+      <div class="wrap">
+        <h2 class="section-title">FAQ</h2>
+        <details>
+          <summary>Is this a video call or chat?</summary>
+          <p>We usually meet by secure video. If needed, we can follow up by chat or email for simple clarifications.</p>
+        </details>
+        <details>
+          <summary>Who are the doctors?</summary>
+          <p>Our team consists of licensed Indonesian doctors who are used to speaking English and assisting international visitors in Bali.</p>
+        </details>
+        <details>
+          <summary>Can you help me find local care in Bali?</summary>
+          <p>Yes. We can guide you on practical next steps and help you navigate local clinics, hospitals, and services.</p>
+        </details>
+        <details>
+          <summary>Is my information private?</summary>
+          <p>Yes. We take privacy seriously and use secure tools to protect your information.</p>
+        </details>
+      </div>
+    </section>
   </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="wrap foot">
+      <div>
+        <strong>BaliDoctor.live</strong>
+        <div class="legal">Online doctor conversations for advice and follow-up in Bali.</div>
+        <div class="legal">© <span id="y"></span> BaliDoctor.live. All rights reserved.</div>
+      </div>
+      <nav aria-label="Footer links">
+        <a href="#how">How it works</a> ·
+        <a href="#doctors">Doctors</a> ·
+        <a href="#" onclick="document.getElementById('pp').showModal();return false;">Privacy</a> ·
+        <a href="https://calendly.com/info-balidoctor/10-minute-free-online-doctor-consult-on-google" target="_blank" rel="noopener">Booking</a>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- Privacy modal -->
+  <dialog id="pp" style="max-width:760px;border:none;border-radius:16px;padding:0;box-shadow:var(--shadow)">
+    <div style="padding:22px 20px;border-bottom:1px solid var(--line);background:#0aa69e10">
+      <strong>Privacy Policy</strong>
+    </div>
+    <div style="padding:18px 20px">
+      <p>We collect only the information needed to schedule and conduct your online conversation (e.g., name, contact details, appointment time). Where third-party tools are used (e.g., Calendly, WhatsApp, video), their privacy policies apply.</p>
+      <p>We do not sell your data. We use reasonable safeguards to protect it and retain it only as long as needed for the purpose of your consultation and follow-up coordination.</p>
+      <p>For any questions, contact us via WhatsApp at <a href="https://wa.me/6289518023363" target="_blank" rel="noopener">+62 895-1802-3363</a>.</p>
+    </div>
+    <form method="dialog" style="padding:0 20px 20px"><button class="btn" style="background:#eef3f4">Close</button></form>
+  </dialog>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
