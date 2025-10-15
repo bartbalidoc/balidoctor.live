@@ -36,7 +36,7 @@
     .btn.primary{background:var(--brand);color:#fff}
     .btn.primary:hover{background:var(--brand-dark)}
     .btn.wa{background:#25D366;color:#fff}
-    .btn.ghost{background:#fff;border:1px solid var(--line);color:var(--ink)}
+    .btn.ghost{background:#fff;border:1px solid var(--line);color:#1f2a2e}
     .heroimg{border-radius:16px;overflow:hidden;box-shadow:var(--shadow)}
     .heroimg img{display:block;width:100%;height:auto}
 
@@ -47,19 +47,8 @@
 
     footer{margin:22px 0;color:#80939b;font-size:13px}
 
-    @media (max-width:900px){
-      .grid{grid-template-columns:1fr;gap:14px}
-    }
+    @media (max-width:900px){ .grid{grid-template-columns:1fr;gap:14px} }
   </style>
-
-  <!-- (Optional) Microsoft Clarity event only on this page
-  <script type="text/javascript">
-    (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window, document, "clarity", "script", "tqizx9nfhf");
-    window.clarity && clarity('set','page','thank-you');
-  </script>
-  -->
 </head>
 <body>
   <div class="wrap">
@@ -69,44 +58,39 @@
     </header>
 
     <h1>Thank you — you’re booked!</h1>
-    <p class="lead">Here’s how to get ready and find your video link. This page has everything you need for a smooth conversation.</p>
+    <p class="lead">Please read these quick steps so you’re ready. Your meeting link and booking details are in your email.</p>
 
     <div class="grid">
       <!-- Left column: Steps & Prep -->
       <div class="card">
-        <h2>1) Find your confirmation email</h2>
+        <h2>1) Open your confirmation email</h2>
         <ul class="list">
-          <li>Check your inbox for our confirmation with the <strong>meeting time</strong> and <strong>video link</strong>.</li>
-          <li>If you don’t see it in a few minutes, check <strong>Spam</strong> / <strong>Junk</strong> / <strong>Promotions</strong>.</li>
+          <li>Check your inbox for our confirmation email. It contains the <strong>video meeting link</strong>.</li>
+          <li>The email also includes your <strong>booking details</strong> plus quick links to <strong>reschedule</strong> or <strong>cancel</strong>.</li>
+          <li>If it’s not there in a few minutes, check <strong>Spam</strong>, <strong>Junk</strong>, or <strong>Promotions</strong>.</li>
         </ul>
         <div class="cta-row">
           <a class="btn ghost" href="https://mail.google.com/" target="_blank" rel="noopener">Open Gmail</a>
           <a class="btn ghost" href="https://outlook.live.com/mail/0/" target="_blank" rel="noopener">Open Outlook</a>
         </div>
-        <p class="hint">The email includes options to <em>reschedule</em> or <em>cancel</em> if needed.</p>
+        <p class="hint">Tip: search your mail for <code>BaliDoctor.live</code> or <code>Calendly</code>.</p>
 
         <hr style="border:0;border-top:1px solid var(--line);margin:18px 0" />
 
-        <h2>2) Get ready for your video call</h2>
+        <h2>2) No app required — just click the link</h2>
         <ul class="list">
-          <li>Join from a <strong>quiet, well-lit</strong> space with a stable internet connection.</li>
-          <li>Test your <strong>camera</strong> and <strong>microphone</strong> in advance.</li>
-          <li>Have any recent notes or information ready.</li>
-          <li><strong>Join a few minutes early</strong> to check everything works.</li>
+          <li>You <strong>don’t need to install anything</strong> to join. Google Meet opens in your web browser.</li>
+          <li>Use a <strong>phone or laptop</strong> with a stable internet connection and a recent browser (Chrome, Safari, Edge, or Firefox).</li>
+          <li>Find a <strong>quiet, well-lit</strong> place and join a few minutes early to check camera and microphone.</li>
         </ul>
-        <div class="cta-row">
-          <a class="btn primary" href="https://meet.google.com/" target="_blank" rel="noopener">Open Google Meet</a>
-          <a class="btn ghost" href="https://test.webrtc.org/" target="_blank" rel="noopener">Test camera & mic</a>
-        </div>
-        <p class="hint">Your actual Meet link is inside your confirmation email.</p>
 
         <hr style="border:0;border-top:1px solid var(--line);margin:18px 0" />
 
-        <h2>3) Need to make a change?</h2>
-        <p>Use the <strong>“Reschedule”</strong> button in your confirmation email. Or pick a new time here:</p>
+        <h2>3) Need to change your time?</h2>
+        <p>You can <strong>reschedule or cancel</strong> directly from the links inside your confirmation email.</p>
         <div class="cta-row">
-          <a class="btn ghost" href="https://calendly.com/info-balidoctor/10-minute-free-online-doctor-consult-on-google" target="_blank" rel="noopener">Book another time</a>
-          <a class="btn wa" href="https://wa.me/6289518023363?text=Hi%20BaliDoctor%2C%20I%20just%20booked%20an%20online%20conversation%20and%20have%20a%20quick%20question." target="_blank" rel="noopener">WhatsApp support</a>
+          <a class="btn primary" href="https://calendly.com/info-balidoctor/10-minute-free-online-doctor-consult-on-google" target="_blank" rel="noopener">Book a different time</a>
+          <a class="btn wa" href="https://wa.me/6289518023363?text=Hi%20BaliDoctor%2C%20I%20just%20booked%20and%20need%20help%20with%20my%20appointment." target="_blank" rel="noopener">WhatsApp support</a>
         </div>
       </div>
 
@@ -119,15 +103,15 @@
         <div class="card" style="margin-top:14px">
           <h2>Quick tips</h2>
           <ul class="list">
-            <li>Use Chrome or Safari for the best video quality.</li>
-            <li>If the video is choppy, turn off background apps and move closer to Wi-Fi.</li>
-            <li>Headphones help reduce echo.</li>
+            <li>If video is choppy, move closer to Wi-Fi and close unused apps.</li>
+            <li>Headphones reduce echo and improve audio clarity.</li>
+            <li>Joining from work or school Wi-Fi? Browser pop-ups for camera/mic may be blocked—approve access when prompted.</li>
           </ul>
         </div>
 
         <details style="margin-top:10px">
           <summary>Can’t find the email?</summary>
-          <p>Search your inbox for: <code>BaliDoctor.live</code> or <code>Calendly</code>. Also check Spam/Junk/Promotions. Still stuck? Message us on WhatsApp and we’ll help.</p>
+          <p>Search your inbox for <code>BaliDoctor.live</code> or <code>Calendly</code>, and check Spam/Junk/Promotions. Still stuck? Message us on WhatsApp and we’ll resend it.</p>
         </details>
       </div>
     </div>
